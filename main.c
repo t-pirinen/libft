@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:31:14 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/21 17:23:18 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:58:24 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ int main(void)
 	// STRING TESTS										STRING TESTS
 
 	printf("\n!!! STRING TESTS START HERE!!! \n\n");
+
+// ft_atoi
+	char	atoi_string[20] = "2147483647hi12";
+	char	ft_atoi_string[20] = "2147483647hi12";
+
+	printf ("%d\n", atoi(atoi_string));
+	printf ("%d\n", ft_atoi(ft_atoi_string));
 
 // ft_strlcpy
 	char strlcpy_src[100] = "This is a test string";
