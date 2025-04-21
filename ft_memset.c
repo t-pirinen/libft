@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:48:52 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/18 13:43:12 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:40:00 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*p = s;
+	unsigned char	*p;
 
+	p = s;
 	while (n--)
 	{
 		*p++ = (unsigned char)c;

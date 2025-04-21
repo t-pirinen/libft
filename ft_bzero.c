@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:53:58 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/18 16:44:36 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:33:17 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p = s;
+	unsigned char	*p;
+	size_t			i;
 
-	size_t	i;
+	p = s;
 	i = 0;
 	while (i < n)
 	{

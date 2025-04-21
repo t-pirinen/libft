@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:31:14 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/19 17:05:04 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/21 17:23:18 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,17 @@ int main(void)
 	size_t lena2 = ft_strlcat(strlcat_dst, strlcat_src, /*sizeof(strlcat_dst)*/22);
     printf("ft_strlcat copied %zu bytes\n", lena2);
     printf("Destination string: %s\n", strlcat_dst);
+
+// ft_strnstr
+	const char	*big = "Foo Bar BaBaz";
+	const char	*little = "";
+	char		*strnstr_ptr;
+	char		*ft_strnstr_ptr;
+
+	strnstr_ptr = strnstr(big, little, 5);
+	ft_strnstr_ptr = ft_strnstr(big, little, 5);
+	printf("%s\n", strnstr_ptr);
+	printf("%s", ft_strnstr_ptr);
 
 
 	// MEMORY TESTS										MEMORY TESTS

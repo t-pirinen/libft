@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:10:25 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/19 17:05:53 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/21 13:34:28 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 			i++;
 		}
 		while (j < size - 1 && src[i])
-			{
-				dst[i] = src[j];
-				i++;
-				j++;
-			}
+		{
+			dst[i] = src[j];
+			i++;
+			j++;
+		}
 		*dst = '\0';
 	}
 	return (i);
