@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 17:31:14 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/19 14:15:44 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:05:04 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,15 +91,26 @@ int main(void)
 	char strlcpy_src[100] = "This is a test string";
     char strlcpy_dst[100] = "";
 
-    size_t len1 = strlcpy(strlcpy_dst, strlcpy_src, sizeof(strlcpy_dst));
+    size_t len1 = strlcpy(strlcpy_dst, strlcpy_src, /*sizeof(strlcpy_dst)*/12);
     printf("strlcpy copied %zu bytes\n", len1);
     printf("Destination string: %s\n\n", strlcpy_dst);
 
-	size_t len2 = ft_strlcpy(strlcpy_dst, strlcpy_src, sizeof(strlcpy_dst));
+	size_t len2 = ft_strlcpy(strlcpy_dst, strlcpy_src, /*sizeof(strlcpy_dst)*/12);
     printf("ft_strlcpy copied %zu bytes\n", len2);
-    printf("Destination string: %s\n", strlcpy_dst);
+    printf("Destination string: %s\n\n", strlcpy_dst);
 
 
+// ft_strlcat
+	char strlcat_src[100] = "is a test string";
+    char strlcat_dst[100] = "This ";
+
+    size_t lena1 = strlcat(strlcat_dst, strlcat_src, /*sizeof(strlcat_dst)*/22);
+    printf("strlcat copied %zu bytes\n", lena1);
+    printf("Destination string: %s\n\n", strlcat_dst);
+
+	size_t lena2 = ft_strlcat(strlcat_dst, strlcat_src, /*sizeof(strlcat_dst)*/22);
+    printf("ft_strlcat copied %zu bytes\n", lena2);
+    printf("Destination string: %s\n", strlcat_dst);
 
 
 	// MEMORY TESTS										MEMORY TESTS

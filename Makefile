@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/04/19 14:15:47 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/04/21 11:54:41 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ COMPILERFLAGS = -Wall -Wextra -Werror
 SRCS =	ft_isalnum.c	ft_isalpha.c	ft_isascii.c	ft_isdigit.c	\
 		ft_isprint.c	ft_tolower.c	ft_toupper.c					\
 																		\
-		ft_memset.c		ft_bzero.c		ft_memcpy.c		ft_memmove.c	\
+		ft_bzero.c		ft_memcpy.c		ft_memmove.c	ft_memset.c		\
 																		\
-		ft_strlcpy.c	ft_strlen.c
+		ft_strlcat.c	ft_strlcpy.c	ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -42,7 +42,6 @@ tests: main.c $(NAME)
 
 run: all tests fclean
 
-# cleans and extra commands
 clean:
 		@rm -f *.o
 
