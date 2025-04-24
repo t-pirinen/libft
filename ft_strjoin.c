@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 17:49:57 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/24 15:55:25 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/24 17:57:36 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/24 18:20:04 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	j;
-	size_t	i;
+	char	*newstr;
+	size_t	newlen;
 
-	j = 0;
-	i = 0;
-
-	if (!dst || !src)
-		return (0);
-	if (size > 0)
-	{
-		while (src[j] != '\0')
-		{
-			if (i < size - 1)
-			{
-				dst[i] = src[j];
-				i++;
-			}
-			j++;
-		}
-		dst[i] = '\0';
-	}
-	while (src[j] != '\0')
-		j++;
-	return (j);
+	if (!s1 || !s2)
+		return (NULL);
+	newlen = ft_strlen(s1) + ft_strlen(s2);
+	newstr = malloc(newlen + 1);
+	if (newstr == NULL)
+		return (NULL);
+	ft_strlcpy(newstr, s1, ft_strlen(s1) + 1);
+	ft_strlcat(newstr, s2, newlen + 1);
+	return (newstr);	
 }

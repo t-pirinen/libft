@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:28:52 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/18 13:27:41 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:53:32 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
+	
+	if(s == NULL)
+		return (0);
 	while (s[i])
 	{
 		i++;

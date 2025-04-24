@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 17:49:57 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/24 15:55:25 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/24 17:18:07 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/24 17:57:22 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	j;
+	char	*sub_str;
 	size_t	i;
 
-	j = 0;
-	i = 0;
-
-	if (!dst || !src)
-		return (0);
-	if (size > 0)
+	if (!s || start >= ft_strlen(s))
+		return (sub_str = "");
+	sub_str = malloc(len + 1);
+	if (!sub_str)
+		return (NULL);
+	while (len-- > 0 && s[start + i])
 	{
-		while (src[j] != '\0')
-		{
-			if (i < size - 1)
-			{
-				dst[i] = src[j];
-				i++;
-			}
-			j++;
-		}
-		dst[i] = '\0';
+		sub_str[i++] = s[start + i];
 	}
-	while (src[j] != '\0')
-		j++;
-	return (j);
+	sub_str[i] = '\0';
+	return (sub_str);
 }
