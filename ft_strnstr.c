@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 15:18:26 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/21 17:23:41 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/26 17:54:47 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		if (big[i] == little[0])
 		{
 			j = 0;
-			while (little[j] != '\0' && big[i + j] == little[j] && (i + j) < len)
+			while (little[j] && big[i + j] == little[j] && (i + j) < len)
 				j++;
 		}
 		if (little[j] == '\0')
@@ -34,19 +34,4 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		i++;
 	}
 	return (NULL);
-}
-
-#include <stdio.h>
-#include <bsd/string.h>
-int	main()
-{
-	const char	*big = "Foo Bar BaBaz";
-	const char	*little = "";
-	char		*strnstr_ptr;
-	char		*ft_strnstr_ptr;
-
-	strnstr_ptr = strnstr(big, little, 5);
-	ft_strnstr_ptr = ft_strnstr(big, little, 5);
-	printf("%s\n", strnstr_ptr);
-	printf("%s", ft_strnstr_ptr);
 }

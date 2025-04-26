@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 17:49:57 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/24 15:55:25 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/26 18:25:38 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	j = 0;
 	i = 0;
-
 	if (!dst || !src)
 		return (0);
 	if (size > 0)

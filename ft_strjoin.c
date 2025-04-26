@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:57:36 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/24 18:20:04 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/26 18:25:24 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(newstr, s1, ft_strlen(s1) + 1);
 	ft_strlcat(newstr, s2, newlen + 1);
-	return (newstr);	
+	return (newstr);
 }

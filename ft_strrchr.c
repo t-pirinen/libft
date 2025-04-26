@@ -6,30 +6,24 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:28:01 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/21 13:44:17 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/26 18:26:08 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_strrchar(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	*ptr;
+	char	*last_occur;
 
-	ptr = s;
-	if (c == '\0')
+	last_occur = NULL;
+	while (*s)
 	{
-		while (*ptr)
-			ptr++;
-		return (ptr);
+		if (*s == (char)c)
+			last_occur = (char *)s;
+		s++;
 	}
-	while (*ptr)
-		ptr++;
-	while (ptr != s)
-	{
-		if (*ptr == c)
-			return (ptr);
-		ptr--;
-	}
-	return (NULL);
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (last_occur);
 }
