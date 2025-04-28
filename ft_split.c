@@ -6,15 +6,23 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/26 20:24:28 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/28 16:33:33 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	*ft_free_all()
+static void	ft_free_all(char **arr, size_t str_count)
 {
-	
+	size_t	i;
+
+	i = 0;
+	while (arr[i] && i < str_count)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
 
 static size_t	ft_count_str(char const *s, char c)
@@ -37,47 +45,55 @@ static size_t	ft_count_str(char const *s, char c)
 			while (s[i] && s[i] != c)
 				i++;
 		}
-		i++;
 	}
 	return (str_count);
+}
+
+static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i, size_t j)
+{
+	size_t	str_size;
+	char	*end_of_str;
+
+	end_of_str = ft_strchr(&s[i], (int)c); 
+	if (end_of_str == NULL)
+		str_size = ft_strlen(&s[i]);
+	else
+		str_size = end_of_str - &s[i];
+	arr[j] = malloc(str_size + 1);
+	if (!arr[j])
+		return (NULL);
+	return (arr);
 }
 
 static void	*ft_str_fill(char **arr, char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
+	size_t	k;
 
 	i = 0;
 	j = 0;
 	while (s[i])
 	{
+		while (s[i] == c)
+			i++;
 		if (s[i])
 		{
-			while (s[i] == c)
+			if (!ft_str_alloc(arr, s, c, i, j))
+				return (NULL);
+			k = 0;
+			while (s[i] && s[i] != c)
+			{
+				arr[j][k] = s[i];
+				k++;
 				i++;
+			}
+			arr[j][k] = '\0';
 		}
-		if (s[i])
-		{
-			ft_str_alloc(arr[j][i], s, c, i);
-		}
-		i++;
+		j++;
 	}
-	return ();
+	return (arr);
 }
-
-static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i)
-{
-	size_t	str_size;
-
-	str_size = ft_strchr(&s[i], (int)c) - &s[i] + 1;
-	if (str_size == NULL)
-		str_size = ft_strlen(&s[i]);
-	*arr = malloc(str_size + 1);
-	if (!arr)
-		return (NULL);
-	return (**arr);
-}
-
 
 char	**ft_split(char const *s, char c)
 {
@@ -86,10 +102,14 @@ char	**ft_split(char const *s, char c)
 
 
 	str_count = ft_count_str(s, c);
-	*arr = malloc(str_count * sizeof(char *) + sizeof(NULL));
-	*arr[str_count] = NULL;
-
-	ft_str_fill(**arr, s, c);
-
-	
+	arr = malloc((str_count + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	arr[str_count] = NULL;
+	if (!ft_str_fill(arr, s, c))
+	{
+		ft_free_all(arr, str_count);
+		return (NULL);
+	}
+	return (arr);
 }
