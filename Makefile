@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/04/29 13:36:51 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/04/30 13:56:51 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ COMPILER = cc
 
 COMPILERFLAGS = -Wall -Wextra -Werror
 
-SRCS =	ft_isalnum.c	ft_isalpha.c	ft_isascii.c	ft_isdigit.c	\
+SRC	=	ft_isalnum.c	ft_isalpha.c	ft_isascii.c	ft_isdigit.c	\
 		ft_isprint.c	ft_tolower.c	ft_toupper.c					\
 		\
 		ft_bzero.c		ft_calloc.c		ft_memchr.c		ft_memcmp.c		\
@@ -30,7 +30,13 @@ SRCS =	ft_isalnum.c	ft_isalpha.c	ft_isascii.c	ft_isdigit.c	\
 		\
 		ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c	ft_putnbr_fd.c
 
-OBJS = $(SRCS:.c=.o)
+BONUS_SRC = ft_lstnew_bonus.c	ft_lstadd_front_bonus.c	ft_lstsize_bonus.c		\
+			ft_lstlast_bonus.c	ft_lstadd_back_bonus.c	ft_lstdelone_bonus.c	\
+			ft_lstclear_bonus.c	ft_lstiter_bonus.c		ft_lstmap_bonus.c
+
+OBJS = $(SRC:.c=.o)
+
+BONUS_OBJS = $(BONUS_SRC:.c=.o)
 
 .c.o:
 	$(COMPILER) $(COMPILERFLAGS) -c $< -o $@
@@ -42,18 +48,18 @@ $(NAME): $(OBJS)
 		ar rcs $(NAME) $^
 		@echo "\nlib created"
 
-tests: main.c $(NAME)
-		cc $(COMPILERFLAGS) $^ -lbsd -o exec
-		./exec
-
 run: all tests fclean
 
 clean:
-		@rm -f *.o
+		rm -f *.o
 
 fclean: clean
-		@rm -f $(NAME) exec
+		rm -f $(NAME) exec
 
 re: fclean all
 
-.PHONY: all clean fclean re test
+bonus: $(BONUS_OBJS)
+		ar rcs $(NAME) $^
+		@echo "\nlib created"
+
+.PHONY: all clean fclean re

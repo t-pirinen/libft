@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 12:26:30 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:34:53 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/29 17:35:29 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/29 20:17:36 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+/*	Returns the last node of the list.	*/
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (!s)
-		return ;
-	while (*s)
-	{
-		if (write(fd, &*s++, 1) == -1)
-		{
-			write(2, "ft_putstr_fd error\n", 19);
-			return ;
-		}
-	}
+	t_list	*last;
+
+	if (!lst)
+		return (NULL);
+	last = lst;
+	while (NULL != last->next)
+		last = last->next;
+	return (last);
 }

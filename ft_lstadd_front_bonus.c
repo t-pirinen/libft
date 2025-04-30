@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 12:26:30 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:34:53 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/29 16:24:45 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/29 18:19:04 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+/*	Adds the node 'new' at the beginning of the list.	*/
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!s)
+	if (!lst || !new)
 		return ;
-	while (*s)
-	{
-		if (write(fd, &*s++, 1) == -1)
-		{
-			write(2, "ft_putstr_fd error\n", 19);
-			return ;
-		}
-	}
+	new->next = *lst;
+	*lst = new;
 }

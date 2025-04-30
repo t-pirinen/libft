@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 12:26:30 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:34:53 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/29 18:19:47 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/29 19:09:59 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+/*	Takes the node as parameter and frees its content using the function 'del'.
+	Frees the node itself but does NOT free the next node.	*/
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (!s)
+	if (!lst || !del)
 		return ;
-	while (*s)
-	{
-		if (write(fd, &*s++, 1) == -1)
-		{
-			write(2, "ft_putstr_fd error\n", 19);
-			return ;
-		}
-	}
+	del(lst->content);
+	free(lst);
 }

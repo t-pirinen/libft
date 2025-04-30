@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 12:26:30 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:34:53 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/29 18:45:11 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/30 14:14:13 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+/*	Deletes and frees the given node and all its successors, using the
+	function 'del' and free(3). Finally, set the pointer to the
+	list to NULL.	*/
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	if (!s)
+	t_list	*temp;
+
+	if (!lst || !del)
 		return ;
-	while (*s)
+	while (*lst)
 	{
-		if (write(fd, &*s++, 1) == -1)
-		{
-			write(2, "ft_putstr_fd error\n", 19);
-			return ;
-		}
+		temp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = temp;
 	}
+	*lst = NULL;
 }

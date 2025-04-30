@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 12:26:30 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:34:53 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/04/29 17:10:38 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/04/29 18:18:11 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+/*	Count the number of nodes in the list.	*/
+int	ft_lstsize(t_list *lst)
 {
-	if (!s)
-		return ;
-	while (*s)
+	t_list	*iter;
+	int		lstsize;
+
+	iter = lst;
+	lstsize = 0;
+	while (iter)
 	{
-		if (write(fd, &*s++, 1) == -1)
-		{
-			write(2, "ft_putstr_fd error\n", 19);
-			return ;
-		}
+		iter = iter->next;
+		lstsize++;
 	}
+	return (lstsize);
 }
