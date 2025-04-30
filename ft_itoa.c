@@ -6,13 +6,13 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:19:53 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 11:26:56 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:44:22 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_count_len(n)
+static	size_t	ft_count_len(int n)
 {
 	size_t	len;
 

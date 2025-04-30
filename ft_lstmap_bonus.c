@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:35:02 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/30 14:11:52 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:44:37 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*newlst;
 	t_list	*new_node;
-	
+
 	if (!lst || !f || !del)
 		return (NULL);
 	newlst = NULL;

@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/04/30 13:56:51 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/04/30 17:00:00 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,21 +45,21 @@ BONUS_OBJS = $(BONUS_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		ar rcs $(NAME) $^
-		@echo "\nlib created"
+		@ar rcs $(NAME) $^
+		@echo "\nObject files and Lib created"
 
-run: all tests fclean
-
+bonus: $(BONUS_OBJS)
+		@ar rcs $(NAME) $^
+		@echo "\nBonus object files and Lib created"
+		
 clean:
-		rm -f *.o
+		@rm -f *.o
+		@echo "\nRemoved object files"
 
 fclean: clean
-		rm -f $(NAME) exec
+		@rm -f $(NAME)
+		@echo "Removed library"
 
 re: fclean all
 
-bonus: $(BONUS_OBJS)
-		ar rcs $(NAME) $^
-		@echo "\nlib created"
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus_lib

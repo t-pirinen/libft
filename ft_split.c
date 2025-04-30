@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/28 16:33:33 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:58:34 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ static size_t	ft_count_str(char const *s, char c)
 	return (str_count);
 }
 
-static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i, size_t j)
+static void	*ft_str_alloc(char **arr, char const *s, char c, size_t j)
 {
 	size_t	str_size;
 	char	*end_of_str;
 
-	end_of_str = ft_strchr(&s[i], (int)c); 
+	end_of_str = ft_strchr(s, (int)c);
 	if (end_of_str == NULL)
-		str_size = ft_strlen(&s[i]);
+		str_size = ft_strlen(s);
 	else
-		str_size = end_of_str - &s[i];
+		str_size = end_of_str - s;
 	arr[j] = malloc(str_size + 1);
 	if (!arr[j])
 		return (NULL);
@@ -67,27 +67,21 @@ static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i, size_t j)
 
 static void	*ft_str_fill(char **arr, char const *s, char c)
 {
-	size_t	i;
 	size_t	j;
 	size_t	k;
 
-	i = 0;
 	j = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			if (!ft_str_alloc(arr, s, c, i, j))
+			if (!ft_str_alloc(arr, s, c, j))
 				return (NULL);
 			k = 0;
-			while (s[i] && s[i] != c)
-			{
-				arr[j][k] = s[i];
-				k++;
-				i++;
-			}
+			while (*s && *s != c)
+				arr[j][k++] = *s++;
 			arr[j][k] = '\0';
 		}
 		j++;
@@ -99,7 +93,6 @@ char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	size_t	str_count;
-
 
 	str_count = ft_count_str(s, c);
 	arr = malloc((str_count + 1) * sizeof(char *));
