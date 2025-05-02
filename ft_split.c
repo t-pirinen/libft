@@ -6,15 +6,15 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 16:05:25 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 18:33:22 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static size_t	ft_count_str(char const *s, char c);
-static void		*ft_str_alloc(char **arr, char const *s, char c, size_t i);
-static void		*ft_str_fill(char **arr, char const *s, char c);
+static char		**ft_str_alloc(char **arr, char const *s, char c, size_t i);
+static char		**ft_str_fill(char **arr, char const *s, char c);
 static void		ft_free_all(char **arr, size_t str_count);
 
 /*	Allocates memory (using malloc(3)) and returns an array of strings
@@ -49,11 +49,8 @@ static size_t	ft_count_str(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i])
-		{
-			while (s[i] == c)
-				i++;
-		}
+		while (s[i] == c)
+			i++;
 		if (s[i])
 		{
 			str_count++;
@@ -65,7 +62,7 @@ static size_t	ft_count_str(char const *s, char c)
 }
 
 /*	Allocates memory for all the strings to be created.						*/
-static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i)
+static char	**ft_str_alloc(char **arr, char const *s, char c, size_t i)
 {
 	size_t	str_size;
 	char	*end_of_str;
@@ -82,7 +79,7 @@ static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i)
 }
 
 /*	Fills the array with the strings to be created.							*/
-static void	*ft_str_fill(char **arr, char const *s, char c)
+static char	**ft_str_fill(char **arr, char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
