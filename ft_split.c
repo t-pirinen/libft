@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 15:23:24 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 16:05:25 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	ft_count_str(char const *s, char c);
 static void		*ft_str_alloc(char **arr, char const *s, char c, size_t i);
 static void		*ft_str_fill(char **arr, char const *s, char c);
-static void	ft_free_all(char **arr, size_t str_count);
+static void		ft_free_all(char **arr, size_t str_count);
 
 /*	Allocates memory (using malloc(3)) and returns an array of strings
 	obtained by splitting ’s’ using the character ’c’ as a delimiter.
