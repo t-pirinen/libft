@@ -6,12 +6,14 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:25:51 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/30 16:23:39 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:54:08 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	Takes a pointer to a string and converts the initial portion of the
+	string to int, skipping the whitespaces at the beginning.				*/
 int	ft_atoi(const char *nptr)
 {
 	size_t	i;
@@ -21,7 +23,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	sign = 1;
 	value = 0;
-	while (nptr[i] == ' ' || (nptr[i] > 6 && nptr[i] < 14))
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{

@@ -6,18 +6,15 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:09:33 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:33:48 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:05:30 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	err_checknprint(int fd, char c)
-{
-	if (write(fd, &c, 1) == -1)
-		write(2, "ft_putnbr_fd error\n", 19);
-}
+static void	err_checknprint(int fd, char c);
 
+/*	Writes the given integer 'n' to the given file descriptor 'fd'.			*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n < 0)
@@ -41,4 +38,10 @@ void	ft_putnbr_fd(int n, int fd)
 		n += '0';
 		err_checknprint(fd, n);
 	}
+}
+
+static void	err_checknprint(int fd, char c)
+{
+	if (write(fd, &c, 1) == -1)
+		write(2, "ft_putnbr_fd error\n", 19);
 }

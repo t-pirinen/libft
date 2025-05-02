@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/04/30 17:00:00 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/05/02 15:54:40 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,4 +62,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus_lib
+.PHONY: all clean fclean re

@@ -6,10 +6,12 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 12:21:38 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/16 15:22:16 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 14:48:26 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*	Returns a non-zero value if 'c' is a printable ascii character.
+	Otherwise returns 0.													*/
 int	ft_isprint(int c)
 {
 	if ((32 <= c && c <= 126))

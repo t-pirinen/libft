@@ -6,12 +6,13 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:26:30 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/29 17:34:53 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:19:08 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	Writes the given string 's' to the given file descriptor 'fd'.			*/
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)

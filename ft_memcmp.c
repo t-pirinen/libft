@@ -6,12 +6,15 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:44:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/21 15:17:56 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 14:56:00 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	Returns an integer less than, equal to, or greater than zero if the first
+	n bytes of s1 is found, respectively, to be less than, to match, or be
+	greater than the first n bytes of s2.									*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*mem1;

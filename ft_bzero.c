@@ -6,12 +6,13 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:53:58 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/26 14:10:51 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 14:46:56 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	Initializes 'n' amount of memory from 's' to null.						*/
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;

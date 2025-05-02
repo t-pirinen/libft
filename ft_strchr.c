@@ -6,12 +6,14 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:17:11 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/26 17:48:25 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:24:35 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	Returns a pointer to the first occurrence of the character 'c' in the
+	string 's'.																*/
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)

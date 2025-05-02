@@ -6,10 +6,12 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 12:18:00 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/16 18:08:17 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 14:47:07 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*	Returns a non-zero value if 'c' is an ascii character.
+	Otherwise returns 0.													*/
 int	ft_isascii(int c)
 {
 	if ((0 <= c && c <= 127))

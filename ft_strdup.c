@@ -6,12 +6,15 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 15:41:23 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/26 18:08:37 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:55:16 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*	Returns a pointer to a new string which is a duplicate of the string 's'.
+	Memory for the new string is obtained with malloc(3), and can be freed
+	with free(3)															*/
 char	*ft_strdup(const char *s)
 {
 	char	*dup_str;

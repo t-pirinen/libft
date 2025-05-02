@@ -6,25 +6,40 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/04/30 14:58:34 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/02 15:23:24 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free_all(char **arr, size_t str_count)
-{
-	size_t	i;
+static size_t	ft_count_str(char const *s, char c);
+static void		*ft_str_alloc(char **arr, char const *s, char c, size_t i);
+static void		*ft_str_fill(char **arr, char const *s, char c);
+static void	ft_free_all(char **arr, size_t str_count);
 
-	i = 0;
-	while (arr[i] && i < str_count)
+/*	Allocates memory (using malloc(3)) and returns an array of strings
+	obtained by splitting ’s’ using the character ’c’ as a delimiter.
+	The array ends with a NULL pointer.										*/
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	size_t	str_count;
+
+	str_count = ft_count_str(s, c);
+	arr = malloc((str_count + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	arr[str_count] = NULL;
+	if (!ft_str_fill(arr, s, c))
 	{
-		free(arr[i]);
-		i++;
+		ft_free_all(arr, str_count);
+		return (NULL);
 	}
-	free(arr);
+	return (arr);
 }
 
+/*	Counts the number of strings to be created that are delimited
+	by the character 'c'.													*/
 static size_t	ft_count_str(char const *s, char c)
 {
 	size_t	str_count;
@@ -49,7 +64,8 @@ static size_t	ft_count_str(char const *s, char c)
 	return (str_count);
 }
 
-static void	*ft_str_alloc(char **arr, char const *s, char c, size_t j)
+/*	Allocates memory for all the strings to be created.						*/
+static void	*ft_str_alloc(char **arr, char const *s, char c, size_t i)
 {
 	size_t	str_size;
 	char	*end_of_str;
@@ -59,50 +75,48 @@ static void	*ft_str_alloc(char **arr, char const *s, char c, size_t j)
 		str_size = ft_strlen(s);
 	else
 		str_size = end_of_str - s;
-	arr[j] = malloc(str_size + 1);
-	if (!arr[j])
+	arr[i] = malloc(str_size + 1);
+	if (!arr[i])
 		return (NULL);
 	return (arr);
 }
 
+/*	Fills the array with the strings to be created.							*/
 static void	*ft_str_fill(char **arr, char const *s, char c)
 {
+	size_t	i;
 	size_t	j;
-	size_t	k;
 
-	j = 0;
+	i = 0;
 	while (*s)
 	{
 		while (*s == c)
 			s++;
 		if (*s)
 		{
-			if (!ft_str_alloc(arr, s, c, j))
+			if (!ft_str_alloc(arr, s, c, i))
 				return (NULL);
-			k = 0;
+			j = 0;
 			while (*s && *s != c)
-				arr[j][k++] = *s++;
-			arr[j][k] = '\0';
+				arr[i][j++] = *s++;
+			arr[i][j] = '\0';
 		}
-		j++;
+		i++;
 	}
 	return (arr);
 }
 
-char	**ft_split(char const *s, char c)
+/*	Frees the memory allocated to the strings. Used when any of the
+	memory allocations fail.												*/
+static void	ft_free_all(char **arr, size_t str_count)
 {
-	char	**arr;
-	size_t	str_count;
+	size_t	i;
 
-	str_count = ft_count_str(s, c);
-	arr = malloc((str_count + 1) * sizeof(char *));
-	if (!arr)
-		return (NULL);
-	arr[str_count] = NULL;
-	if (!ft_str_fill(arr, s, c))
+	i = 0;
+	while (arr[i] && i < str_count)
 	{
-		ft_free_all(arr, str_count);
-		return (NULL);
+		free(arr[i]);
+		i++;
 	}
-	return (arr);
+	free(arr);
 }
