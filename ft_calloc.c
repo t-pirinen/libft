@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:56:26 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 14:43:51 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 17:38:26 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	if (nmemb <= 0 || size <= 0)
 	{
-		ptr = malloc(0);
+		ptr = malloc(1);
 		if (ptr == NULL)
 			return (NULL);
 		return (ptr);

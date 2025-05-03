@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 13:36:31 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 15:50:57 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 18:51:07 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	startl;
 	size_t	endl;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	startl = ft_startlen(s1, set);
 	if (startl == ft_strlen(s1))

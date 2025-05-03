@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 18:43:42 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 14:12:01 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	**ft_split(char const *s, char c)
 	char	**arr;
 	size_t	str_count;
 
+	if (!s)
+		return (NULL);
 	str_count = ft_count_str(s, c);
 	arr = malloc((str_count + 1) * sizeof(char *));
 	if (!arr)

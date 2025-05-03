@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:19:53 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 15:14:40 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 18:01:17 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	if (n < 0)
+	if (n == -2147483648)
 	{
 		str[0] = '-';
-		if (n == -2147483648)
-		{
-			str[1] = '2';
-			n = -147483648;
-		}
+		str[1] = '2';
+		n = 147483648;
+	}
+	else if (n < 0)
+	{
+		str[0] = '-';
 		n = -n;
 	}
 	ft_assign(str, n, len - 1);

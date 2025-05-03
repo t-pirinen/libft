@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 17:10:38 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 14:53:05 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 18:06:29 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_lstsize(t_list *lst)
 	t_list	*iter;
 	int		lstsize;
 
+	if (!lst)
+		return (0);
 	iter = lst;
 	lstsize = 0;
 	while (iter)

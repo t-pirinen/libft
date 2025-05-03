@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 16:01:13 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 15:52:41 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 18:51:20 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 	otherwise returns the character.										*/
 int	ft_tolower(int c)
 {
-	if (65 <= c && c <= 90)
+	if ('A' <= c && c <= 90)
 		return (c + 32);
 	else
 		return (c);

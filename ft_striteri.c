@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:15:09 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 15:26:52 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 18:32:50 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
-	size_t	s_len;
 
+	if (!s || !f)
+		return ;
 	i = 0;
-	s_len = ft_strlen(s);
-	while (i < s_len)
+	while (s[i])
 	{
 		f(i, &s[i]);
 		i++;

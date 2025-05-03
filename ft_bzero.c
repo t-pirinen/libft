@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 17:53:58 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/02 14:46:56 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/03 18:54:53 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,5 @@
 /*	Initializes 'n' amount of memory from 's' to null.						*/
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
-	size_t			i;
-
-	p = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = '\0';
-		i++;
-	}
+	ft_memset(s, '\0', n);
 }
