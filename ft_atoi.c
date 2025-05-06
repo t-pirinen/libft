@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 17:25:51 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/03 19:50:12 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/06 16:28:05 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ int	ft_atoi(const char *nptr)
 			return (-1);
 		value = value * 10 + (nptr[i++] - 48);
 	}
-	if (nptr[i] == '-')
-		value *= -1;
 	return (value * sign);
 }
