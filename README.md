@@ -1,2 +1,2 @@
 # libft
-my own library
+The library I've made during the 42 curriculum
