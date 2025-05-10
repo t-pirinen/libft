@@ -17,17 +17,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
-	if (nmemb <= 0 || size <= 0)
-	{
-		ptr = malloc(1);
-		if (ptr == NULL)
-			return (NULL);
-		return (ptr);
-	}
-	if (size > (size_t)-1 / nmemb)
+	if (nmemb == 0 || size == 0)
+		return (malloc(1));
+	if (size > SIZE_MAX / nmemb)
 		return (NULL);
 	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
+	if (!ptr)
 		return (NULL);
 	ft_memset(ptr, 0, nmemb * size);
 	return (ptr);

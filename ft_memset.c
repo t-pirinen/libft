@@ -16,12 +16,10 @@
 	constant byte c.														*/
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*p;
+	unsigned char	*ptr;
 
-	p = (unsigned char *)s;
+	ptr = (unsigned char *)s;
 	while (n--)
-	{
-		*p++ = (unsigned char)c;
-	}
+		*ptr++ = (unsigned char)c;
 	return (s);
 }

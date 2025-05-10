@@ -16,24 +16,24 @@
 	string to int, skipping the whitespaces at the beginning.				*/
 int	ft_atoi(const char *nptr)
 {
-	size_t	i;
-	size_t	value;
-	int		sign;
+	int	result;
+	int	sign;
 
-	i = 0;
+	result = 0;
 	sign = 1;
-	value = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if ((nptr[i] == '-' || nptr[i] == '+') && nptr[i++] == '-')
-		sign = -1;
-	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
+	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
+		|| *nptr == '\v' || *nptr == '\f' || *nptr == '\r')
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (sign == 1 && value >= 214748364 && nptr[i] - '0' > 7)
-			return (-1);
-		if (sign == -1 && value >= 214748364 && nptr[i] - '0' > 8)
-			return (-1);
-		value = value * 10 + (nptr[i++] - 48);
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
 	}
-	return (value * sign);
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		result = result * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return (result * sign);
 }

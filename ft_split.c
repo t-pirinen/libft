@@ -119,3 +119,4 @@ static void	ft_free_all(char **arr, size_t str_count)
 	}
 	free(arr);
 }
+

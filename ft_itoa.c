@@ -13,72 +13,48 @@
 #include "libft.h"
 
 static size_t	ft_count_len(int n);
-static void		ft_assign(char *str, int n, size_t len);
 
 /*	Allocates memory (using malloc(3)) and returns a string representing
 	the integer received as an argument. Negative numbers are handled.		*/
 char	*ft_itoa(int n)
 {
 	char	*str;
+	long	num;
 	size_t	len;
+	size_t	start_index;
 
-	str = NULL;
 	len = ft_count_len(n);
 	str = malloc(len + 1);
 	if (!str)
 		return (NULL);
+	num = n;
 	str[len] = '\0';
-	if (n == -2147483648)
+	start_index = 0;
+	if (num < 0)
 	{
 		str[0] = '-';
-		str[1] = '2';
-		n = 147483648;
+		num = -num;
+		start_index = 1;
 	}
-	else if (n < 0)
+	while (len-- > start_index)
 	{
-		str[0] = '-';
-		n = -n;
+		str[len] = (num % 10) + '0';
+		num /= 10;
 	}
-	ft_assign(str, n, len - 1);
 	return (str);
 }
 
-static	size_t	ft_count_len(int n)
+static size_t	ft_count_len(int n)
 {
 	size_t	len;
+	long	num;
 
-	len = 1;
-	if (n >= 0)
+	num = n;
+	len = (n <= 0);
+	while (num)
 	{
-		while (n > 9)
-		{
-			n = n / 10;
-			len++;
-		}
-		return (len);
-	}
-	else
-	{
-		if (n == -2147483648)
-			return (11);
+		num /= 10;
 		len++;
-		n = -n;
-		while (n > 9)
-		{
-			n /= 10;
-			len++;
-		}
-		return (len);
 	}
-}
-
-static void	ft_assign(char *str, int n, size_t len)
-{
-	if (n < 10)
-		str[len] = n + '0';
-	else
-	{
-		ft_assign(str, (n / 10), (len - 1));
-		str[len] = (n % 10) + '0';
-	}
+	return (len);
 }
