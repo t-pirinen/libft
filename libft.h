@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:31:45 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 00:32:03 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/17 02:01:50 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdint.h>
 # include <stdarg.h>
 
-# define DECIMAL "0123456789"
 # define HEX_LOWER "0123456789abcdef"
 # define HEX_UPPER "0123456789ABCDEF"
 
@@ -73,11 +72,13 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-ssize_t	ft_puthex_low_fd(uintptr_t n, int fd);
+ssize_t	ft_puthex_low_fd(unsigned int n, int fd);
+ssize_t	ft_puthex_up_fd(unsigned int n, int fd);
 ssize_t	ft_putptr_fd(void *p, int fd);
 ssize_t	ft_putchar_fd_ret(char c, int fd);
 ssize_t	ft_putnbr_fd_ret(int n, int fd);
 ssize_t	ft_putstr_fd_ret(char *s, int fd);
+int	ft_putunbr_fd(unsigned int n, int fd);
 
 /*		lists	*/
 t_list	*ft_lstnew(void *content);

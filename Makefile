@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/05/16 22:52:16 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/05/17 02:30:49 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,14 @@ SRC	=	ft_atoi.c			\
 		ft_putchar_fd_ret.c	\
 		ft_putchar_fd.c		\
 		ft_putendl_fd.c		\
+		ft_puthex_low_fd.c	\
+		ft_puthex_up_fd.c	\
 		ft_putnbr_fd_ret.c	\
 		ft_putnbr_fd.c		\
 		ft_putptr_fd.c		\
 		ft_putstr_fd_ret.c	\
 		ft_putstr_fd.c		\
+		ft_putunbr_fd.c		\
 		ft_split.c			\
 		ft_strchr.c			\
 		ft_strdup.c			\
@@ -68,7 +71,7 @@ SRC	=	ft_atoi.c			\
 OBJS = $(SRC:.c=.o)
 
 .c.o:
-	$(COMPILER) $(CFLAGS) -c $< -o $@
+	@$(COMPILER) $(CFLAGS) -c $< -o $@
 
 # rules
 all: $(NAME)

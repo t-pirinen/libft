@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_low_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/16 23:15:10 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 01:39:05 by tpirinen         ###   ########.fr       */
+/*   Created: 2025/05/17 01:21:25 by tpirinen          #+#    #+#             */
+/*   Updated: 2025/05/17 02:10:27 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static ssize_t	ft_puthexlowfd(unsigned int n, int fd)
+/*	Prints an unsigned int to file descriptor and returns number of
+	chars printed.															*/
+int	ft_putunbr_fd(unsigned int n, int fd)
 {
-	ssize_t		chars_printed;
+	int	chars_printed;
 
 	chars_printed = 0;
-	if (n >= 16)
-		chars_printed += ft_puthexlowfd(n / 16, fd);
-	chars_printed += write(fd, &HEX_LOWER[n % 16], 1);
+	if (n > 9)
+	{
+		chars_printed += ft_putunbr_fd(n / 10, fd);
+		chars_printed += ft_putunbr_fd(n % 10, fd);
+	}
+	else
+	{
+		n += '0';
+		chars_printed += write(fd, &n, 1);
+	}
 	return (chars_printed);
-}
-
-ssize_t		ft_puthex_low_fd(unsigned int n, int fd)
-{
-	if (n == 0)
-		return (write(fd, "0", 1));
-	return (ft_puthexlowfd(n, fd));
 }
