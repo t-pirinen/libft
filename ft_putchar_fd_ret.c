@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd_ret.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:21:43 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/15 19:22:00 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:23:09 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	Writes character 'c' to the given file descriptor.						*/
-void	ft_putchar_fd(char c, int fd)
+/*	Writes character 'c' to the given file descriptor and returns
+	number of digits written.												*/
+ssize_t	ft_putchar_fd_ret(char c, int fd)
 {
-	write(fd, &c, 1);
+	return (write(fd, &c, 1));
 }

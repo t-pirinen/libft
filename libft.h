@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:31:45 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/03 20:13:13 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:38:12 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+ssize_t	ft_putchar_fd_ret(char c, int fd);
+ssize_t	ft_putnbr_fd_ret(int n, int fd);
+ssize_t	ft_putstr_fd_ret(char *s, int fd);
 
 /*		lists	*/
 t_list	*ft_lstnew(void *content);
