@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/05/16 22:39:00 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/05/16 22:52:16 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC	=	ft_atoi.c			\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd_ret.c	\
 		ft_putnbr_fd.c		\
+		ft_putptr_fd.c		\
 		ft_putstr_fd_ret.c	\
 		ft_putstr_fd.c		\
 		ft_split.c			\
