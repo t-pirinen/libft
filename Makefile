@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/05/16 22:28:51 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/05/16 22:39:00 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libft.a
 
 COMPILER = cc
 
-COMPILERFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC	=	ft_atoi.c			\
 		ft_bzero.c			\
@@ -67,7 +67,7 @@ SRC	=	ft_atoi.c			\
 OBJS = $(SRC:.c=.o)
 
 .c.o:
-	$(COMPILER) $(COMPILERFLAGS) -c $< -o $@
+	$(COMPILER) $(CFLAGS) -c $< -o $@
 
 # rules
 all: $(NAME)
