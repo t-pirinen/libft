@@ -6,12 +6,14 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/05/17 02:56:03 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/05/17 03:59:11 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # variables
 NAME = libft.a
+
+HEADER = libft.h
 
 COMPILER = cc
 
@@ -70,7 +72,7 @@ SRC	=	ft_atoi.c			\
 
 OBJS = $(SRC:.c=.o)
 
-.c.o:
+%.o: %.c $(HEADER)
 	@$(COMPILER) $(CFLAGS) -c $< -o $@
 
 # rules
