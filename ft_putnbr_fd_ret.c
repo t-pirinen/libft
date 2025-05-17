@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:09:33 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:06:30 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/17 05:13:58 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static ssize_t	ft_putnbr_ll_fd_ret(long long n, int fd);
 
 /*	Writes the given integer 'n' to the given file descriptor 'fd' and
-	returns the number of chars printed.									*/
+	returns the number of chars printed. Returns -1 on error.				*/
 ssize_t	ft_putnbr_fd_ret(int nbr, int fd)
 {
     return ft_putnbr_ll_fd_ret((long long)nbr, fd);

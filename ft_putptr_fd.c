@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:46:20 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:07:11 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/17 05:13:42 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static ssize_t	ft_printhex(uintptr_t n, int fd);
 
-/*	Prints the memory address of a pointer to file descriptor.				*/
+/*	Prints the memory address of a pointer to file descriptor. Returns number
+	of characters printed or -1 on error.									*/
 ssize_t		ft_putptr_fd(void *ptr, int fd)
 {
 	ssize_t		err;

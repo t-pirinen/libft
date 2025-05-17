@@ -6,13 +6,14 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 23:15:10 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:07:53 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/17 05:18:08 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*  Prints lowercase hexadecimal to file descriptor.                        */
+/*  Prints lowercase hexadecimal to file descriptor. Returns number of
+    characters printed or -1 on error.										*/
 static ssize_t	ft_puthexlowfd(unsigned int n, int fd)
 {
     ssize_t		chars_printed;

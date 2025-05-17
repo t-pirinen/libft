@@ -6,13 +6,14 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 00:51:04 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:08:16 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/17 05:14:46 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*  Prints uppercase hexadecimal to file descriptor.                        */
+/*  Prints uppercase hexadecimal to file descriptor. Returns number of
+    characters printed or -1 on error.                                      */
 static ssize_t	ft_puthexupfd(unsigned int n, int fd)
 {
     ssize_t		chars_printed;
