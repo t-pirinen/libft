@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/05/17 02:30:49 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/05/17 02:56:03 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,15 +78,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 		@ar rcs $(NAME) $^
-		@echo "\nObject files and Lib created"
+		@echo ".o files and libft.a created"
 		
 clean:
 		@rm -f $(OBJS)
-		@echo "\nRemoved object files"
+		@echo "Removed .o files"
 
 fclean: clean
-		@rm -f $(NAME) $(OBJS)
-		@echo "Removed library"
+		@rm -f $(NAME)
+		@echo "Removed libft.a"
 
 re: fclean all
 
