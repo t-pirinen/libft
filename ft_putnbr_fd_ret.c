@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:09:33 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:13:58 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:11:46 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static ssize_t	ft_putnbr_ll_fd_ret(long long n, int fd)
     {
         err = ft_putnbr_ll_fd_ret(n / 10, fd);
         if (err == -1)
-            return (err);
+            return (-1);
         chars_printed += err;
     }
     err = ft_putchar_fd_ret((n % 10) + '0', fd);
     if (err == -1)
-        return (err);
+        return (-1);
     chars_printed += err;
     return (chars_printed);
 }

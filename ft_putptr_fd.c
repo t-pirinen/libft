@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:46:20 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:13:42 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:12:11 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ ssize_t		ft_putptr_fd(void *ptr, int fd)
 		return (write(fd, "(nil)", 5));
 	err = write(fd, "0x", 2);
 	if (err == -1)
-		return (err);
+		return (-1);
 	err += ft_printhex((uintptr_t)ptr, fd);
 	if (err == -1)
-		return (err);
+		return (-1);
 	return (err);
 }
 
@@ -41,12 +41,12 @@ static ssize_t	ft_printhex(uintptr_t n, int fd)
 	{
 		err = ft_printhex(n / 16, fd);
 		if (err == -1)
-			return (err);
+			return (-1);
 		chars_printed += err;
 	}
 	err = write(fd, &HEX_LOWER[n % 16], 1);
 	if (err == -1)
-		return (err);
+		return (-1);
 	chars_printed += err;
 	return (chars_printed);
 }

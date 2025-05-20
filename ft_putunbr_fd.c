@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 01:21:25 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/17 05:12:43 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:12:35 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_putunbr_fd(unsigned int n, int fd)
 		chars_printed += err;
 		err = ft_putunbr_fd(n % 10, fd);
 		if (err == -1)
-			return (err);
+			return (-1);
 		chars_printed += err;
 	}
 	else
@@ -36,7 +36,7 @@ int	ft_putunbr_fd(unsigned int n, int fd)
 		n += '0';
 		err = write(fd, &n, 1);
 		if (err == -1)
-			return (err);
+			return (-1);
 		chars_printed += err;
 	}
 	return (chars_printed);
