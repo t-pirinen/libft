@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 23:15:10 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/20 18:18:32 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:22:45 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ssize_t	ft_puthex_low_fd(unsigned int n, int fd)
 	}
 	err = write(fd, &HEX_LOWER[n % 16], 1);
 	if (err == -1)
-	 	return (-1);
+		return (-1);
 	chars_printed += err;
 	return (chars_printed);
 }
