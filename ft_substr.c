@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:18:07 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/11 15:33:04 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:16:42 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	j;
 
 	if (!s)
-	return (NULL);
+		return (NULL);
 	while (*s && start--)
 		s++;
 	sub_len = 0;
