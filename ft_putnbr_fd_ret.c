@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:09:33 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/20 18:22:23 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:24:22 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static ssize_t	ft_putnbr_ll_fd_ret(long long n, int fd)
 {
 	ssize_t	err;
 	ssize_t	chars_printed;
-	
+
 	chars_printed = 0;
 	if (n < 0)
 	{
