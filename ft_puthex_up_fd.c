@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 00:51:04 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/20 18:22:00 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/06/01 23:38:49 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 	characters printed or -1 on error.                                      */
 ssize_t	ft_puthex_up_fd(unsigned int n, int fd)
 {
-	ssize_t		chars_printed;
-	ssize_t		err;
+	ssize_t	chars_printed;
+	ssize_t	err;
 
 	chars_printed = 0;
 	if (n >= 16)

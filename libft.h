@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:31:45 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/20 18:23:21 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/06/01 23:35:12 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /*		writes to file descriptor	*/
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
+ssize_t	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
+ssize_t	ft_putnbr_fd(int n, int fd);
 ssize_t	ft_puthex_low_fd(unsigned int n, int fd);
 ssize_t	ft_puthex_up_fd(unsigned int n, int fd);
 ssize_t	ft_putptr_fd(void *p, int fd);
-ssize_t	ft_putchar_fd_ret(char c, int fd);
-ssize_t	ft_putnbr_fd_ret(int n, int fd);
-ssize_t	ft_putstr_fd_ret(char *s, int fd);
+ssize_t	ft_putstr_fd(char *s, int fd);
 int		ft_putunbr_fd(unsigned int n, int fd);
 
 /*		lists	*/

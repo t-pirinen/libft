@@ -6,13 +6,13 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:46:20 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/20 18:16:27 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/06/01 23:28:17 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static ssize_t	ft_printhex(uintptr_t n, int fd);
+static ssize_t	ft_print_addr(uintptr_t n, int fd);
 
 /*	Prints the memory address of a pointer to file descriptor. Returns number
 	of characters printed or -1 on error.									*/
@@ -25,13 +25,13 @@ ssize_t	ft_putptr_fd(void *ptr, int fd)
 	err = write(fd, "0x", 2);
 	if (err == -1)
 		return (-1);
-	err += ft_printhex((uintptr_t)ptr, fd);
+	err += ft_print_addr((uintptr_t)ptr, fd);
 	if (err == -1)
 		return (-1);
 	return (err);
 }
 
-static ssize_t	ft_printhex(uintptr_t n, int fd)
+static ssize_t	ft_print_addr(uintptr_t n, int fd)
 {
 	ssize_t		chars_printed;
 	ssize_t		err;
@@ -39,7 +39,7 @@ static ssize_t	ft_printhex(uintptr_t n, int fd)
 	chars_printed = 0;
 	if (n >= 16)
 	{
-		err = ft_printhex(n / 16, fd);
+		err = ft_print_addr(n / 16, fd);
 		if (err == -1)
 			return (-1);
 		chars_printed += err;

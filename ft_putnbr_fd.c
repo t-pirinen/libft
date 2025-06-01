@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 13:09:33 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/03 19:00:23 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/06/01 23:10:11 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*	Writes the given integer 'n' to the given file descriptor 'fd'.			*/
-void	ft_putnbr_fd(int n, int fd)
+/*	Writes the given integer 'n' to the given file descriptor 'fd' and
+	returns the number of chars printed. Returns -1 on error.				*/
+ssize_t	ft_putnbr_fd(int nbr, int fd)
 {
-	char	c;
+	ssize_t		err;
+	ssize_t		chars_printed;
+	long long	n;
 
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
+	n = (long long)nbr;
+	chars_printed = 0;
 	if (n < 0)
 	{
-		write(fd, "-", 1);
+		if (write(fd, "-", 1) == -1)
+			return (-1);
+		chars_printed++;
 		n = -n;
 	}
 	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + '0';
-	write(fd, &c, 1);
+	{
+		err = ft_putnbr_fd((int)(n / 10), fd);
+		if (err == -1)
+			return (-1);
+		chars_printed += err;
+	}
+	err = ft_putchar_fd((n % 10) + '0', fd);
+	if (err == -1)
+		return (-1);
+	chars_printed += err;
+	return (chars_printed);
 }
