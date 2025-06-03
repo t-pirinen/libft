@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/16 22:46:20 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/06/01 23:28:17 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/06/03 15:45:43 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,21 @@ static ssize_t	ft_print_addr(uintptr_t n, int fd);
 	of characters printed or -1 on error.									*/
 ssize_t	ft_putptr_fd(void *ptr, int fd)
 {
-	ssize_t		err;
-
+	ssize_t	err;
+	ssize_t	chars_printed;
+	
 	if (!ptr)
 		return (write(fd, "(nil)", 5));
+	chars_printed = 0;
 	err = write(fd, "0x", 2);
 	if (err == -1)
 		return (-1);
-	err += ft_print_addr((uintptr_t)ptr, fd);
+	chars_printed += err;
+	err = ft_print_addr((uintptr_t)ptr, fd);
 	if (err == -1)
 		return (-1);
-	return (err);
+	chars_printed += err;
+	return (chars_printed);
 }
 
 static ssize_t	ft_print_addr(uintptr_t n, int fd)
