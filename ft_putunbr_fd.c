@@ -14,10 +14,10 @@
 
 /*	Prints an unsigned int to file descriptor and returns number of
 	chars printed. Returns -1 on error.										*/
-int	ft_putunbr_fd(unsigned int n, int fd)
+ssize_t	ft_putunbr_fd(unsigned int n, int fd)
 {
-	int	err;
-	int	chars_printed;
+	ssize_t	err;
+	ssize_t	chars_printed;
 
 	chars_printed = 0;
 	if (n > 9)
