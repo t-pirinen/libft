@@ -6,7 +6,7 @@
 #    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/06/01 23:35:21 by tpirinen         ###   ########.fr        #
+#    Updated: 2025/06/10 21:48:51 by tpirinen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC	=	ft_atoi.c			\
 		ft_memcpy.c			\
 		ft_memmove.c		\
 		ft_memset.c			\
+		ft_printf.c			\
 		ft_putchar_fd.c		\
 		ft_putendl_fd.c		\
 		ft_puthex_low_fd.c	\
@@ -52,6 +53,7 @@ SRC	=	ft_atoi.c			\
 		ft_putunbr_fd.c		\
 		ft_split.c			\
 		ft_strchr.c			\
+		ft_strcpy.c			\
 		ft_strdup.c			\
 		ft_striteri.c		\
 		ft_strjoin.c		\
