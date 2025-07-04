@@ -13,7 +13,7 @@
 #include "libft.h"
 
 static char	*read_until_newline(int fd, char *buffer);
-static char	*clean_line(const char *buffer);
+static char	*extract_line(const char *buffer);
 
 char	*get_next_line(int fd)
 {
@@ -33,7 +33,7 @@ char	*get_next_line(int fd)
 		free(buffer);
 		return (NULL);
 	}
-	line = clean_line(buffer);
+	line = extract_line(buffer);
 	newline = ft_strchr(buffer, '\n');
 	if (newline)
 		ft_strcpy(left_overs, newline + 1);
@@ -69,7 +69,7 @@ static char	*read_until_newline(int fd, char *buffer)
 	return (buffer);
 }
 
-static char	*clean_line(const char *buffer)
+static char	*extract_line(const char *buffer)
 {
 	char	*line;
 	size_t	len;
