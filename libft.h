@@ -6,7 +6,7 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:31:45 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/07/06 13:27:43 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:29:29 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	*ft_memset(void *s, int c, size_t n);
 /*		strings	*/
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
-int		ft_printf(const char *s, ...);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 void	ft_strcpy(char *dst, const char *src);
