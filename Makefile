@@ -1,23 +1,9 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/15 17:32:33 by tpirinen          #+#    #+#              #
-#    Updated: 2025/06/10 21:48:51 by tpirinen         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-# variables
 NAME = libft.a
 
 HEADER = libft.h
 
-COMPILER = cc
-
-CFLAGS = -Wall -Wextra -Werror
+CC = cc -Wall -Wextra -Werror
 
 SRC	=	ft_atoi.c			\
 		ft_bzero.c			\
@@ -73,22 +59,22 @@ SRC	=	ft_atoi.c			\
 OBJS = $(SRC:.c=.o)
 
 %.o: %.c $(HEADER)
-	@$(COMPILER) $(CFLAGS) -c $< -o $@
+	@$(CC) -c $< -o $@
 
 # rules
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		@ar rcs $(NAME) $^
-		@echo ".o files and libft.a created"
+	@ar rcs $(NAME) $^
+	@echo "LIBFT: Object files and libft.a created"
 		
 clean:
-		@rm -f $(OBJS)
-		@echo "Removed .o files"
+	@rm -f $(OBJS)
+	@echo "LIBFT: Removed object files"
 
 fclean: clean
-		@rm -f $(NAME)
-		@echo "Removed libft.a"
+	@rm -f $(NAME)
+	@echo "LIBFT: Removed libft.a"
 
 re: fclean all
 
