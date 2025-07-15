@@ -6,13 +6,13 @@
 /*   By: tpirinen <tpirinen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 18:10:48 by tpirinen          #+#    #+#             */
-/*   Updated: 2025/05/20 18:16:31 by tpirinen         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:19:07 by tpirinen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_str(char const *s, char c);
+static size_t	ft_count_words(char const *s, char c);
 static char		**ft_str_alloc(char **arr, char const *s, char c, size_t i);
 static char		**ft_str_fill(char **arr, char const *s, char c);
 static void		ft_free_all(char **arr, size_t str_count);
@@ -27,7 +27,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	str_count = ft_count_str(s, c);
+	str_count = ft_count_words(s, c);
 	arr = malloc((str_count + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
@@ -42,7 +42,7 @@ char	**ft_split(char const *s, char c)
 
 /*	Counts the number of strings to be created that are delimited
 	by the character 'c'.													*/
-static size_t	ft_count_str(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
 	size_t	str_count;
 	size_t	i;
